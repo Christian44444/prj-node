@@ -1,22 +1,23 @@
 console.log("Projet démarré en " + process.env.NODE_ENV);
-
 const http = require('http');
 const https = require('https');
-const {readFileSync} = require('fs');
-const { resolve } = require('path');
+const {ssl, port} = require(`../environment/env.${process.env.NODE_ENV}.js`);
 
 const httpsOptions = {
-    cert: readFileSync(resolve('ssl', 'monssl.crt')),
-    key: readFileSync(resolve('ssl', 'monssl.key'))
+    cert: ssl.crthttps,
+    key: ssl.keyhttps
 };
 
 http.createServer((req, res) =>{
-    res.end('coucou');
+    // console.log(req.headers.host) 127.0.0.1:7878 
+    const urlredir = `https://${req.headers.host.split(':')[0]}:${port.https}${req.url}`;
+    res.writeHead(301,{Location: urlredir});
+    res.end();
 })
-.listen(3000);
+.listen(port.http);
 
 https.createServer(httpsOptions, (req, res) =>{
-    res.end('coucou');
+    res.end('HTTPS');
 })
-.listen(3030);
+.listen(port.https);
 
