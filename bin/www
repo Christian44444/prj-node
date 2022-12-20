@@ -1,0 +1,22 @@
+console.log("Projet démarré en " + process.env.NODE_ENV);
+
+const http = require('http');
+const https = require('https');
+const {readFileSync} = require('fs');
+const { resolve } = require('path');
+
+const httpsOptions = {
+    cert: readFileSync(resolve('ssl', 'monssl.crt')),
+    key: readFileSync(resolve('ssl', 'monssl.key'))
+};
+
+http.createServer((req, res) =>{
+    res.end('coucou');
+})
+.listen(3000);
+
+https.createServer(httpsOptions, (req, res) =>{
+    res.end('coucou');
+})
+.listen(3030);
+
