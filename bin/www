@@ -1,6 +1,8 @@
 console.log("Projet démarré en " + process.env.NODE_ENV);
 const http = require('http');
 const https = require('https');
+const app = require('../app');
+
 const {ssl, port} = require(`../environment/env.${process.env.NODE_ENV}.js`);
 
 const httpsOptions = {
@@ -16,8 +18,7 @@ http.createServer((req, res) =>{
 })
 .listen(port.http);
 
-https.createServer(httpsOptions, (req, res) =>{
-    res.end('HTTPS');
-})
+https
+.createServer(httpsOptions, app) //déport de l'appli dans app.js
 .listen(port.https);
 
