@@ -1,0 +1,34 @@
+{
+    "users": [
+      {
+        "_id": "6b819b13-ae9c-4fe6-9c82-279c9beb0b2e",
+        "pseudo": "coco",
+        "email": "coco@mail.fr",
+        "address": {
+          "street": "11 rue de la liberté",
+          "zipcode": "23233",
+          "city": "Paris"
+        }
+      },
+      {
+        "_id": "5b755ab3-a7b4-454f-a11f-f53083668096",
+        "pseudo": "jaco",
+        "email": "jaco@mail.fr",
+        "address": {
+          "street": "56 rue de la paix",
+          "zipcode": "78788",
+          "city": "Bordeaux"
+        }
+      },
+      {
+        "_id": "81dd7b7e-14c9-434f-ae04-647650768b42",
+        "pseudo": "pedro",
+        "email": "pedro@mail.fr",
+        "address": {
+          "street": "876 rue des champs",
+          "zipcode": "99999",
+          "city": "Lyon"
+        }
+      }
+    ]
+  }
