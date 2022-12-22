@@ -1,24 +1,22 @@
 // .Router() : La méthode de express qui gère les routes en automatique 
 // (équivalent du esprex.js fait à la main )
-const appRouter = require('express').Router(); 
+const appRouter = require('express').Router();
+
+const appController = require('../controllers/app.controller');
+const getHome = appController.getHome;
+const getServices = appController.getServices;
+const getContact = appController.getContact;
+const get404 = appController.get404;   
+
 const { resolve } = require('path');
 
-appRouter.get("/", (req, res) => {
-    res.sendFile(resolve("public","index.html"));
-});
-appRouter.get("/home", (req, res) => {
-    res.sendFile(resolve("public","index.html"));
-});
-appRouter.get("/services", (req, res) => {
-    res.sendFile(resolve("public","services.html"));
-});
-appRouter.get("/contact", (req, res) => {
-    res.sendFile(resolve("public","contact.html"));
-});
+appRouter.get("/", getHome);
+appRouter.get("/home", getHome);
+appRouter.get("/services", getServices);
+appRouter.get("/contact", getContact);
 
 // "*" route par défaut toujours à la fin si en entête des routes alors les autres ne seront pas exécutées
-appRouter.get("*", (req, res) => {
-    res.sendFile(resolve("public", "page404.html"));
-});
+appRouter.get("*", get404);
+
 module.exports = appRouter;
 

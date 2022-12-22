@@ -1,13 +1,7 @@
 const apiUsersRouter = require('express').Router(); 
+const apiUsersController = require('../controllers/api-users.controller');
+const getUsers = apiUsersController.getUsers;
 
-apiUsersRouter.get('/api/users', (req, res) =>{
-    const data = require('../database/data.json');
-    res.json({
-        nbOfUsers: data.users.length,
-        users: data.users
-    });
-    
-    // res.json({name: 'coco'});
-});
+apiUsersRouter.get('/api/users', getUsers); /* res.json({name: 'coco'}); */
 
 module.exports = apiUsersRouter;
