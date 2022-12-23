@@ -1,0 +1,51 @@
+extends ../layout
+block content 
+  h1 Page des utilisateurs 
+  div
+    ul 
+      li 
+        a(href='/home') Acceuil
+      li 
+        a(href='/contact') Contact
+      li 
+        a(href='/users') Utilisateurs
+      li 
+        a(href='/services') Services
+  table 
+    tr 
+      th pseudo
+      th email 
+    each user in users 
+      tr
+        td= user.pseudo 
+        td=user.email 
+
+//- //- const { users } = require('../../database/data'); // .../data.json il reconnait l'extension
+//- //- const layout = require('../layout')
+
+//- //- module.exports = `${layout}
+//- //-     <h1>Page d'acceuil</h1>
+//- //-     <div>
+//- //-         <ul>
+//- //-             <li><a href="/home">Acceuil</a></li>
+//- //-             <li><a href="/contact">Contact</a></li>
+//- //-             <li><a href="/users">Utilisateurs</a></li>
+//- //-             <li><a href="/services">Services</a></li>
+//- //-         </ul>
+//- //-     </div>
+//- //-     <span></span>
+//- //-     <table>
+//- //-     <tr>
+//- //-       <th>Pseudo</th>
+//- //-       <th>Email</th>
+//- //-     </tr>
+//- //-     ${users.map(({ pseudo, email}) => `
+//- //-       <tr>
+//- //-         <td>${pseudo}</td>
+//- //-         <td>${email}</td>
+//- //-       </tr>
+//- //-     `).join('')}
+//- //-   </table>
+//- //- </body>
+//- //- </html>
+//- //- `;
