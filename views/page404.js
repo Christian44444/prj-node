@@ -1,3 +1,4 @@
+module.exports = `
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -14,6 +15,7 @@
         <ul>
             <li><a href="/home">Acceuil</a></li>
             <li><a href="/contact">Contact</a></li>
+            <li><a href="/users">Utilisateurs</a></li>
             <li><a href="/services">Services</a></li>
         </ul>
     </div>
@@ -21,4 +23,4 @@
     <span></span>
     
 </body>
-</html>
+</html>`;
